@@ -1,0 +1,1 @@
+web: streamlit run mluptd2.py --server.port=$PORT --server.enableCORS=true

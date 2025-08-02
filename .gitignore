@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+.ipynb_checkpoints/
+
+# Data
+# If you have large data files you don't want to commit, add them here.
+# But for this project, you need the CSV file.
+# So, we don't ignore the data folder.
+
+# Model files, we are committing the folder, so this is fine.
+
+# OS-specific
+.DS_Store
+Thumbs.db

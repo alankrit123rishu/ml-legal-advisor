@@ -1,0 +1,11 @@
+streamlit
+pymongo
+faiss-cpu
+sentence-transformers
+spacy
+scikit-learn
+pandas
+numpy
+matplotlib
+seaborn
+torch
