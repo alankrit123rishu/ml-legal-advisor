@@ -49,19 +49,7 @@ try:
     from sklearn.metrics import precision_score, recall_score, confusion_matrix, classification_report
 except ImportError as e:
     st.error(f"Missing required package: {e}")
-    st.info("Installing missing dependencies...")
-    import subprocess
-    try:
-        # Install required packages if missing
-        subprocess.check_call([sys.executable, "-m", "pip", "install", 
-                              "sentence-transformers", "spacy", "scikit-learn"])
-        # Download spaCy model
-        subprocess.check_call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
-        st.success("Dependencies installed. Please restart the application.")
-        st.stop()
-    except Exception as install_error:
-        st.error(f"Failed to install dependencies: {install_error}")
-        st.stop()
+    st.stop()
 
 # --- MongoDB Connection ---
 # Use an environment variable for the MongoDB URI, with a fallback for local testing
@@ -187,21 +175,10 @@ def load_models_and_data(_collection):
             st.stop()
 
     # --- Load spaCy Model ---
-    spacy_model_name = "en_core_web_sm"
+    # The spaCy model is now installed via requirements.txt, so we just need to load it.
     try:
-        print(f"Loading spaCy model: {spacy_model_name}")
-        nlp = spacy.load(spacy_model_name)
+        nlp = spacy.load("en_core_web_sm")
         print("spaCy model loaded successfully.")
-    except OSError:
-        st.error(f"spaCy model '{spacy_model_name}' not found. Attempting to download...")
-        try:
-            import subprocess
-            subprocess.check_call([sys.executable, "-m", "spacy", "download", spacy_model_name])
-            nlp = spacy.load(spacy_model_name)
-            print(f"Successfully downloaded and loaded {spacy_model_name}")
-        except Exception as spacy_e:
-            st.error(f"Could not download spaCy model: {spacy_e}")
-            st.stop()
     except Exception as e:
         st.error(f"Fatal Error: Failed to load spaCy model: {e}")
         st.stop()
