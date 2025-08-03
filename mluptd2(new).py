@@ -479,7 +479,7 @@ with metrics_sidebar:
         
         metrics_df = pd.DataFrame({
             "Metric": ["Total Queries", "Rated Queries", "Avg Rating"],
-            "Value": [total, len(satisfaction), f"{avg_rating:.2f}/5"]
+            "Value": [str(total), str(len(satisfaction)), f"{avg_rating:.2f}/5"]
         })
         
         metrics_summary.dataframe(metrics_df, use_container_width=True, hide_index=True)
