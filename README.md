@@ -25,8 +25,6 @@ Follow these steps to run the application on your local machine.
 -   MongoDB Community Server installed and running locally.
 -   A Git client.
 
-### Step 1: Clone the Repository
+### Step : use the link to use it
+-   https://ml-legal-advisor-2cruzodqvlukuc82y6uab7.streamlit.app/
 
-```bash
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
-cd your-repo-name
